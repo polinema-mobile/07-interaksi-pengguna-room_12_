@@ -2,8 +2,13 @@
     <string name="app_name">AxtivityIntent</string>
 
     <string-array name="android_dropdown_arrays">
-        <item>Pilih Item</item>
-        <item>Akuntansi</item>
+            <item>Pilih Item</item>
+            <item>Akuntansi</item>
+            <item>Administrasi Niaga</item>
+            <item>Teknologi Informasi</item>
+            <item>Teknik Kimia</item>
+            <item>Teknik Mesin</item>
+            <item>Teknik Elektro</item>
 
     </string-array>
 </resources>

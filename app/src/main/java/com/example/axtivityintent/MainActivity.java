@@ -3,6 +3,8 @@ package com.example.axtivityintent;
 import androidx.appcompat.app.AppCompatActivity;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -25,6 +27,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        dateFormatter = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
+
+        tanggalLahir = (EditText) findViewById(R.id.TanggalLahir);
+
+        tanggalLahir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showDateDialog();
+            }
+        });
+
         spinner1 = (Spinner) findViewById(R.id.spinner);
         spinner1.setOnItemSelectedListener(new ItemSelectedListener());
     }
@@ -44,4 +57,49 @@ public class MainActivity extends AppCompatActivity {
                 // Todo when item is selected by the user
             }
         }
+
+        @Override
+        public void onNothingSelected(AdapterView<?> parent) {
+
+        }
+    }
+
+    private void showDateDialog() {
+
+        /**
+         * Calendar untuk mendapatkan tanggal sekarang
+         */
+        Calendar newCalendar = Calendar.getInstance();
+
+        /**
+         * Initiate DatePicker dialog
+         */
+        datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+
+                /**
+                 * Method ini dipanggil saat kita selesai memilih tanggal di DatePicker
+                 */
+
+                /**
+                 * Set Calendar untuk menampung tanggal yang dipilih
+                 */
+                Calendar newDate = Calendar.getInstance();
+                newDate.set(year, monthOfYear, dayOfMonth);
+
+                /**
+                 * Update TextView dengan tanggal yang kita pilih
+                 */
+                tanggalLahir.setText("Tanggal dipilih : " + dateFormatter.format(newDate.getTime()));
+            }
+
+        }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
+
+        /**
+         * Tampilkan DatePicker dialog
+         */
+        datePickerDialog.show();
+    }
 }
