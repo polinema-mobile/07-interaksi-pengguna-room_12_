@@ -6,96 +6,108 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/Nama"
-        android:layout_width="362dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="40dp"
-        android:ems="10"
-        android:hint="Nama Mahasiswa"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.326"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/Nim"
-        android:layout_width="362dp"
-        android:layout_height="47dp"
-        android:ems="10"
-        android:hint="Nomor Induk Mahasiswa"
-        android:inputType="number"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Nama" />
-
-    <EditText
-        android:id="@+id/TanggalLahir"
-        android:layout_width="362dp"
-        android:layout_height="47dp"
-        android:ems="10"
-        android:hint="Tanggal Lahir"
-        android:inputType="date"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.305"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Nim" />
-
-    <RadioGroup
-        android:id="@+id/radio"
-        android:layout_width="362dp"
-        android:layout_height="47dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.246"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TanggalLahir">
-
-        <RadioButton
-            android:id="@+id/radioLakilaki"
-            android:layout_width="104dp"
-            android:layout_height="43dp"
-            android:layout_weight="1"
-            android:text="Laki-laki" />
-
-        <RadioButton
-            android:id="@+id/radioPerempuan"
-            android:layout_width="104dp"
-            android:layout_height="43dp"
-            android:layout_weight="1"
-            android:text="Perempuan" />
-    </RadioGroup>
-
-    <ScrollView
-        android:id="@+id/scrollView2"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-    </ScrollView>
+        <EditText
+            android:id="@+id/edtNama"
+            android:layout_width="319dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="32dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="Nama Mahasiswa"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.326"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:entries="@array/android_dropdown_arrays"
-        android:layout_width="362dp"
-        android:layout_height="47dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radio" />
+        <EditText
+            android:id="@+id/edtNim"
+            android:layout_width="319dp"
+            android:layout_height="48dp"
+            android:ems="10"
+            android:inputType="number"
+            android:hint="Nomor Induk Mahasiswa"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.347"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtNama" />
+
+        <EditText
+            android:id="@+id/edtTanggalLahir"
+            android:layout_width="319dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="4dp"
+            android:ems="10"
+            android:inputType="date"
+            android:hint="Tanggal Lahir"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.347"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtNim" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="318dp"
+            android:layout_height="51dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.329"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtTanggalLahir">
+
+            <RadioButton
+                android:id="@+id/radioLakilaki"
+                android:layout_width="155dp"
+                android:layout_height="48dp"
+                android:text="Laki-laki" />
+
+            <RadioButton
+                android:id="@+id/radioPerempuan"
+                android:layout_width="155dp"
+                android:layout_height="48dp"
+                android:text="Perempuan" />
+
+        </RadioGroup>
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="319dp"
+            android:layout_height="48dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.347"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </ScrollView>
+
+        <Spinner
+            android:id="@+id/listJurusan"
+            android:layout_width="319dp"
+            android:layout_height="48dp"
+            android:entries="@array/android_dropdown_arrays"
+            app:layout_constraintEnd_toEndOf="@+id/scrollView"
+            app:layout_constraintStart_toStartOf="@+id/scrollView"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+        <Button
+            android:id="@+id/btnSimpan"
+            android:layout_width="319dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="32dp"
+            android:text="Simpan Data"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.326"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/scrollView" />
 
 
-    <Button
-        android:id="@+id/btnSubmit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Simpan Data"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerJurusan" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

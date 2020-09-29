@@ -1,14 +1,14 @@
 <resources>
-    <string name="app_name">AxtivityIntent</string>
+    <string name="app_name">ActivityIntent</string>
 
     <string-array name="android_dropdown_arrays">
-            <item>Pilih Item</item>
-            <item>Akuntansi</item>
-            <item>Administrasi Niaga</item>
-            <item>Teknologi Informasi</item>
-            <item>Teknik Kimia</item>
-            <item>Teknik Mesin</item>
-            <item>Teknik Elektro</item>
-
+        <item>Teknologi Informasi</item>
+        <item>Teknik Sipil</item>
+        <item>Teknik Mesin</item>
+        <item>Teknik Elektro</item>
+        <item>Teknik Listrik</item>
+        <item>Akuntansi</item>
+        <item>Administrasi Niaga</item>
+        <item>Teknik Kimia</item>
     </string-array>
 </resources>
