@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">AxtivityIntent</string>
+
+    <string-array name="android_dropdown_arrays">
+        <item>Pilih Item</item>
+        <item>Akuntansi</item>
+
+    </string-array>
+</resources>
