@@ -14,13 +14,12 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.app.DatePickerDialog;
 import android.widget.DatePicker;
-import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  {
     EditText nama, nim, tanggalLahir;
     Spinner jurusan;
     RadioGroup jeniskelamin;
@@ -129,4 +128,5 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
+
 }
