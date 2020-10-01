@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ActivityKedua">
+    tools:context=".BiodataParcelable">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -126,12 +126,13 @@
             android:id="@+id/textView"
             android:layout_width="206dp"
             android:layout_height="45dp"
-            android:layout_marginTop="36dp"
-            android:text="BIODATA - INTENT"
+            android:layout_marginTop="44dp"
+            android:text="BIODATA - PARCEBLABLE"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.707"
+            app:layout_constraintHorizontal_bias="0.604"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

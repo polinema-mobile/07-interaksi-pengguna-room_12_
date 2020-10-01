@@ -87,11 +87,21 @@
             android:layout_width="319dp"
             android:layout_height="48dp"
             android:layout_marginTop="16dp"
-            android:text="Simpan Data"
+            android:text="Simpan Data - intent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.347"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/listJurusan" />
+
+        <Button
+            android:id="@+id/getParcel"
+            android:layout_width="319dp"
+            android:layout_height="48dp"
+            android:text="SIMPAN DATA - PARCELABLE"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.347"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnSimpan" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
