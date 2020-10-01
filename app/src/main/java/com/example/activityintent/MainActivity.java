@@ -75,13 +75,13 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, ActivityKedua.class);
                 int id = jenisKelamin.getCheckedRadioButtonId();
-                RadioButton gender = (RadioButton) findViewById(id);
+                RadioButton jenisKelamin = (RadioButton) findViewById(id);
 
                 //Menyisipkan tipe data String ke dalam obyek bundle
                 intent.putExtra("nama", nama.getText().toString());
                 intent.putExtra("nim", nim.getText().toString());
                 intent.putExtra("tanggalLahir", tanggalLahir.getText().toString());
-                intent.putExtra("jenisKelamin", gender.getText().toString());
+                intent.putExtra("jenisKelamin", jenisKelamin.getText().toString());
                 intent.putExtra("jurusan", jurusan.getSelectedItem().toString());
 
                 //memulai Activity kedua
