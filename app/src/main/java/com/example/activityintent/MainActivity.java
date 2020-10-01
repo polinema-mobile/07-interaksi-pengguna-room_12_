@@ -22,28 +22,20 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity {
     EditText nama, nim, tanggalLahir;
     Spinner jurusan;
-    RadioGroup jenisKelamin;
+    RadioGroup jeniskelamin;
     RadioButton lakilaki, perempuan;
     private DatePickerDialog datePickerDialog;
     private SimpleDateFormat dateFormatter;
     private String gender;
     Button getParcel;
-    Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        nama = (EditText) findViewById(R.id.edtNama);
-        nim = (EditText) findViewById(R.id.edtNim);
-        tanggalLahir = (EditText) findViewById(R.id.edtTanggalLahir);
-        lakilaki = (RadioButton) findViewById(R.id.radioLakilaki);
-        perempuan = (RadioButton) findViewById(R.id.radioPerempuan);
-        jenisKelamin = (RadioGroup) findViewById(R.id.radioGroup);
-        jurusan = (Spinner) findViewById(R.id.listJurusan);
-        button = findViewById(R.id.btnSimpan);
-        getParcel = findViewById(R.id.getParcel);
+        final EditText nama = (EditText) findViewById(R.id.edtNama);
+        final EditText nim = (EditText) findViewById(R.id.edtNim);
 
         dateFormatter = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
         tanggalLahir = (EditText) findViewById(R.id.edtTanggalLahir);
@@ -55,12 +47,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        jenisKelamin.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        RadioButton lakilaki = (RadioButton) findViewById(R.id.radioLakilaki);
+        RadioButton perempuan = (RadioButton) findViewById(R.id.radioPerempuan);
+
+        jeniskelamin = (RadioGroup) findViewById(R.id.radioGroup);
+        jeniskelamin.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 switch (i) {
                     case R.id.radioLakilaki:
-                        gender = "Laki-Laki";
+                        gender  = "Laki-Laki";
                         break;
                     case R.id.radioPerempuan:
                         gender = "Perempuan";
@@ -69,19 +65,23 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        jurusan = (Spinner) findViewById(R.id.listJurusan);
         jurusan.setOnItemSelectedListener(new ItemSelectedListener());
+
+        Button button = findViewById(R.id.btnSimpan);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ActivityKedua.class);
-                int id = jenisKelamin.getCheckedRadioButtonId();
-                RadioButton jenisKelamin = (RadioButton) findViewById(id);
+                Intent intent = new Intent(getApplicationContext(), ActivityKedua.class);
+
+                int id = jeniskelamin.getCheckedRadioButtonId();
+                RadioButton selectedGender = (RadioButton) findViewById(id);
 
                 //Menyisipkan tipe data String ke dalam obyek bundle
                 intent.putExtra("nama", nama.getText().toString());
                 intent.putExtra("nim", nim.getText().toString());
                 intent.putExtra("tanggalLahir", tanggalLahir.getText().toString());
-                intent.putExtra("jenisKelamin", jenisKelamin.getText().toString());
+                intent.putExtra("jeniskelamin", gender);
                 intent.putExtra("jurusan", jurusan.getSelectedItem().toString());
 
                 //memulai Activity kedua
@@ -89,11 +89,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button getParcel = findViewById(R.id.getParcel);
         getParcel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, BiodataParcelable.class);
-                int id = jenisKelamin.getCheckedRadioButtonId();
+
+                int id = jeniskelamin.getCheckedRadioButtonId();
                 RadioButton jenisKelamin = (RadioButton) findViewById(id);
                 Biodata biodata = new Biodata(nama.getText().toString(), nim.getText().toString(), tanggalLahir.getText().toString(), jenisKelamin.getText().toString(), jurusan.getSelectedItem().toString());
 
@@ -101,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
 
     private void showDateDialog(){
